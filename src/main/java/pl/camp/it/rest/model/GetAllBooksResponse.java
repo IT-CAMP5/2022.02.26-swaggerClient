@@ -1,0 +1,66 @@
+package pl.camp.it.rest.model;
+
+import java.util.ArrayList;
+import java.util.List;
+import pl.camp.it.rest.model.Book;
+
+import io.swagger.annotations.ApiModelProperty;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlEnum;
+import javax.xml.bind.annotation.XmlEnumValue;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class GetAllBooksResponse  {
+  
+  @ApiModelProperty(value = "")
+  private List<Book> books = null;
+ /**
+   * Get books
+   * @return books
+  **/
+  @JsonProperty("books")
+  public List<Book> getBooks() {
+    return books;
+  }
+
+  public void setBooks(List<Book> books) {
+    this.books = books;
+  }
+
+  public GetAllBooksResponse books(List<Book> books) {
+    this.books = books;
+    return this;
+  }
+
+  public GetAllBooksResponse addBooksItem(Book booksItem) {
+    this.books.add(booksItem);
+    return this;
+  }
+
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class GetAllBooksResponse {\n");
+    
+    sb.append("    books: ").append(toIndentedString(books)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private static String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+
